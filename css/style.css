@@ -1,0 +1,763 @@
+/*--------------------------------------------------------*/
+/*                   INICIALIZANDO                        */
+/*--------------------------------------------------------*/
+
+/***Zerando toda estilização ---------------------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+}
+
+/***Definindo paleta de cores para o projeto------------- */
+/*   >> Irei utilizar atribuição de variaveis p/ rganizar */
+
+:root {
+    /* >>definindo cores para usar nas fontes */
+    --font-color-white: #ffffff;
+    --font-color-black: #04030a;
+    --font-color-blue-bold: #04030a;
+    --font-color-orange: #fb5607;
+    --font-color-light-orange: #ffa500;
+    --font-color-red: #ff0000;
+    --font-color-grafit: #666;
+    --font-color-grafit-bold: #333333;
+
+
+    /* >>definindo cores para usar nos backgrounds */
+    --bg-black-color: rgba(2, 2, 2, 0.8);
+    --bg-yellow-color: rgb(249, 211, 73);
+    --bg-yellow-bold-color: rgb(213, 126, 18);
+    --bg-gray-ligth-color: rgb(248, 249, 250);
+    --bg-paste-green-color: rgb(64, 210, 122);
+    --bg-orange-color: rgb(251, 86, 7);
+    --bg-ligth-orange-color: rgb(255, 165, 0);
+    --bg-gray-bold-color: rgb(28, 35, 42);
+    --bg-blue-bold-color: rgb(21, 30, 46);
+    --bg-while-color: rgb(255, 255, 255);
+
+
+    /* >>definindo cores para usar nos backgrounds com transparencia */
+    --bg-transarencia-color-black: rgba(3, 0, 12, 0.7);
+
+}
+
+
+/***Definindo a tipografia geral-------------------------- */
+body {
+    overflow-x: hidden;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.625;
+    color: var(--font-color-grafit);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: var(--font-color-grafit-bold);
+    font-weight: 700;
+    margin: 0;
+    line-height: 1.2;
+}
+
+p {
+    text-align: left;
+}
+
+h1 {
+    font-size: 36px;
+}
+
+h2 {
+    font-size: 30px;
+}
+
+h3 {
+    font-size: 24px;
+}
+
+h4 {
+    font-size: 18px;
+}
+
+h5 {
+    font-size: 15px;
+}
+
+h6 {
+    font-size: 13px;
+}
+
+blockquote {
+    margin: 0;
+}
+
+strong {
+    font-weight: 700;
+}
+
+/***Régua vermelha para ter visão de espaço dos elementos- */
+/*  >> basta colocar "regua" em qualquer nome de tag + 'regua' e ele mostra  */
+.regua {
+    border: 1px solid var(--font-color-red);
+}
+
+/*--------------------------------------------------------*/
+/*                BODY-HEADER                             */
+/*--------------------------------------------------------*/
+
+/***adicionando a referencia da imagem do background------ */
+svg {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+/***adicionando estilização do background------------------*/
+.img-background {
+    background: var(--bg-transarencia-color-black)url(/img/img-background-001.jpg);
+    background-blend-mode: darken;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 1400px;
+    max-width: 95%;
+    margin: 0 auto;
+
+}
+
+/***adicionando estilo ao header-------------------------- */
+header {
+    display: flex;
+    justify-content: center;
+    padding-top: 2rem;
+    align-items: center;
+    text-align: center;
+    gap: 8rem;
+}
+
+/***adicionando estilo a imagem da logo ------------------- */
+.logo img {
+    width: 20rem;
+    height: auto;
+    padding-top: 5px;
+}
+
+/***aplicando estilo ao menu --------------------------------*/
+/* >> colocando o menu não ordenado alinhado na horizontal */
+nav ul {
+    display: flex;
+    gap: 30px;
+    font-size: 14px;
+}
+
+
+/* >>aplicando estilo direto na lista não ordenada */
+nav ul li {
+    list-style: none;
+    display: inline-block;
+}
+
+/* >>aplicando estilo aos links da lista não ordenada, deixando da cor branca */
+nav ul li a {
+    text-decoration: none;
+    color: var(--font-color-white);
+    margin-left: 35px;
+    font-size: 15px;
+    font-weight: 500;
+    border-bottom: 2px solid transparent;
+    transition: .4s;
+}
+
+/* >>Aplicando função 'hover' para mudar a cor e sublinhado do menu ao passar o mouse e aplicando 'focus' 
+      para enfatizar a troca do hover apenas onde o mouse passar */
+nav ul li:not(:last-child) a:hover,
+nav ul li:not(:last-child) a:focus {
+    border-bottom: 2px solid var(--font-color-orange);
+}
+
+/* >>aplicando no nome game do menu um sublinhado fixo laranja */
+nav ul li.active a {
+    border-bottom: 2px solid var(--font-color-orange);
+}
+
+/* >>aplicando estilo ao botão */
+.btn {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+
+}
+
+/* >>aplicando cor ao botão */
+.btn button {
+    background-color: var(--font-color-orange);
+    padding: 10px;
+    color: var(--font-color-white);
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+/* >>aplicando efeito de hove ao botão */
+.btn button:hover {
+    background-color: var(--font-color-light-orange);
+}
+
+/* >>editando o link do botão */
+.btn a {
+    color: var(--font-color-white);
+    font-size: 18px;
+}
+
+/* >>aplicando estilo a div container */
+.content .main-text {
+    padding-top: 100px;
+    max-width: 1280px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* >>aplicando estilo ao nome WARZONE */
+.content .main-text h1 {
+    font-size: 100px;
+    line-height: 1;
+    color: var(--font-color-white);
+    margin: 0px 0px 10px 0px;
+}
+
+/* >>aplicando formatação ao nome 'CALL OF DUT' */
+.content .callofdut-text {
+    text-align: center;
+    display: flex;
+    justify-items: center;
+    margin-left: 13rem;
+}
+
+/* >>aplocando estilo ao 'OF' */
+.content .callofdut-text h6 {
+    margin-top: 5px;
+    color: var(--font-color-white);
+}
+
+/* >>aplocando estilo ao 'CALL' e ao 'DUT' */
+.content .callofdut-text h3 {
+    color: var(--font-color-grafit);
+}
+
+/* >>aplicando estilo e delimitação ao paragrafo abaixo do nome WARZONE */
+.content .main-text p {
+    max-width: 100%;
+    width: 480px;
+    color: var(--font-color-white);
+    line-height: 1.8;
+    font-size: 14px;
+    padding-bottom: 10px;
+    text-align: justify;
+}
+
+/* >>aplicando estilo aos links  */
+.content .main-text a {
+    display: inline-block;
+    text-decoration: none;
+    color: var(--font-color-blue-bold);
+    background: var(--font-color-light-orange);
+    border: 1px solid var(--font-color-white);
+    padding: 9px 25px;
+    line-height: 1.4;
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* >>aplicando estilo hover aos links  */
+.content .main-text a:hover {
+    transform: scale(1.2);
+    border: 1px solid var(--font-color-orange);
+    background: transparent;
+    color: var(--font-color-light-orange);
+    transition: .4s;
+}
+
+/* >>aplicando estilo ao outro botão do link de class 'cta' */
+.content .main-text a.cta {
+    color: var(--font-color-blue-bold);
+    background: var(--font-color-light-orange);
+    border: 1px solid var(--font-color-white);
+    margin-left: 20px;
+}
+
+/* >>aplicando estilo hover aos links  CTA */
+.content .main-text a.cta:hover {
+    transform: scale(1.2);
+    border: 1px solid var(--font-color-orange);
+    background: transparent;
+    color: var(--font-color-light-orange);
+    transition: .4s;
+}
+
+/* >>aplicar margem na direita do botão cta */
+.content .main-text a.cta i {
+    margin-right: 12px;
+}
+
+/* >>aplicando estilo aos icones das empresas de jogos */
+.content .ico-social {
+    position: relative;
+    z-index: 2;
+    margin-top: 374px;
+    padding-bottom: 40px;
+    padding-left: 20px;
+
+}
+
+/* >>estilizando o link dos icones das empresas */
+.content .ico-social a {
+    display: inline-block;
+    color: var(--font-color-black);
+    margin-right: 25px;
+    font-size: 24px;
+}
+
+/* >>aplicando efeito hover */
+.content .ico-social a:hover {
+    transform: scale(1.2);
+    transition: .4s;
+    color: var(--font-color-orange);
+}
+
+
+/*--------------------------------------------------------*/
+/*                   BODY                                 */
+/*--------------------------------------------------------*/
+
+/***Iniciando agora os outros container para estilizar */
+.container-secundario {
+    max-height: 100%;
+    height: 100vh;
+    max-width: 100%;
+    width: 1400px;
+    max-width: 99%;
+    margin: 20px auto;
+    min-height: 90vh;
+    height: auto;
+}
+
+/* >>aplicando estilo ao titulo da pagina GAMES */
+.content-2 h2 {
+    font-size: 30px;
+    padding-top: 30px;
+    padding-bottom: 20px;
+    padding-left: 10px;
+    box-sizing: border-box;
+
+}
+
+/* >>aplicando estilos ao article para manter um ao lado do outro */
+.articles {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+/* >>aplicando redimenssionamento das imagens */
+.articles article img {
+    width: 100%;
+    max-width: 100vw;
+    padding: 10px 10px;
+    border-radius: 25px;
+
+}
+
+/* Aplicando um efeito hover para melhorar a interatividade com o cliente */
+.articles article img:hover {
+    transform: scale(1.05);
+    transition: .4s;
+}
+
+/* >>aliando as imagens dentro do articles */
+.articles article {
+    width: 30%;
+    max-width: 100vw;
+    justify-content: center;
+    padding-top: 2rem;
+    align-items: center;
+    text-align: center;
+    gap: 10rem;
+}
+
+/* >>botão de retornar ao topo da pagina */
+.articles article .voltar-ao-top {
+    position: fixed;
+    bottom: 0;
+    right: 12%;
+    height: auto;
+}
+
+/* >>botão de retornar ao topo da pagina */
+.articles article .voltar-ao-top a {
+    background: none;
+    border: none;
+}
+
+/* >>removendo o backgroun do link por conta do simbolo */
+.articles article .voltar-ao-top a:hover {
+    border: none;
+}
+
+
+/* >>dimenssionando tamanho do icone */
+.articles article .voltar-ao-top img {
+    width: 5rem;
+    height: auto;
+    padding-top: 5px;
+}
+
+/* >>aplicando efeito hover ao icone */
+.articles article .voltar-ao-top img:hover {
+    transform: scale(1.8);
+    transition: .4s;
+}
+
+/* >>estilizando os botões abaixo das imagens */
+.content-2 div a {
+    display: inline-block;
+    text-decoration: none;
+    color: var(--font-color-white);
+    /* background:var(--font-color-grafit-bold); */
+    background: var(--bg-orange-color);
+    border: 1px solid var(--font-color-white);
+    padding: 9px 25px;
+    line-height: 1.4;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    margin: 10px;
+}
+
+/* aplicando hover para melhor interatividade com cliente */
+.content-2 div a:hover {
+    transform: scale(1.2);
+    border: 1px solid var(--font-color-orange);
+    background: var(--bg-orange-color);
+    background: transparent;
+    color: var(--font-color-red);
+    transition: .4s;
+}
+
+/***Iniciando agora o  terceiro container para estilizar */
+.container-terceiro {
+    max-height: 100%;
+    height: 100vh;
+    max-width: 100%;
+    width: 1400px;
+    max-width: 99%;
+    margin: 20px auto;
+    background: radial-gradient(var(--bg-gray-bold-color), 35%, var(--bg-gray-bold-color));
+    min-height: 80vh;
+    height: auto;
+}
+
+/* >>aplicando estilo ao titulo da pagina REVIEWS */
+.content-3 h2 {
+    font-size: 30px;
+    padding-top: 30px;
+    padding-bottom: 20px;
+    padding-left: 10px;
+    box-sizing: border-box;
+}
+
+/* >>aplicando estilo ao titulo REVIEWS */
+.content-3 #text-reviews {
+    margin-left: 10px;
+    padding: 20px 20px;
+    color: var(--font-color-light-orange);
+}
+
+/* >>aplicando dimensionamento aos frames de video */
+.articles article video {
+    width: 100%;
+    padding: 10px 10px;
+    cursor: pointer;
+}
+
+/* >>aplicando cor ao titulo dos videos */
+.content-3 .articles article #h3-texto {
+    color: var(--font-color-light-orange);
+
+}
+
+/***Iniciando agora o  terceiro container para estilizar */
+.container-quarto {
+    max-height: 100%;
+    height: 100vh;
+    max-width: 100%;
+    width: 1400px;
+    max-width: 99%;
+    margin: 20px auto;
+    background: radial-gradient(var(--bg-yellow-color), 35%, var(--bg-yellow-bold-color));
+    min-height: 60vh;
+    height: auto;
+}
+
+/* >>aplicando estilo ao titulo da pagina REVIEWS */
+.content-4 h2 {
+    font-size: 30px;
+    padding-top: 30px;
+    padding-bottom: 20px;
+    padding-left: 10px;
+    box-sizing: border-box;
+}
+
+/* >>aplicando estilo ao titulo REVIEWS */
+.content-4 #text-sobre-nos {
+    margin-left: 10px;
+    padding: 20px 20px;
+    color: var(--font-color-blue-bold);
+}
+
+/* >>aplicando disposição das imagens  */
+.container-sobre-nos {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 24px 0;
+
+}
+
+/* >>aplicando estilo a fonte do bloco SOBRE NÓS */
+.container-sobre-nos h2 {
+    padding: 10px 25px;
+    margin-top: 8px;
+    margin-bottom: 16px;
+    color: var(--font-color-blue-bold);
+
+}
+
+.container-sobre-nos h4 {
+    margin-top: 8px;
+    margin-bottom: 8px;
+    /* margin-bottom: 16px; */
+    padding: 10px 25px;
+    color: var(--font-color-blue-bold);
+
+}
+
+.container-sobre-nos p {
+    color: var(--blue-black-color);
+    margin-top: 8px;
+    margin-bottom: 8px;
+    margin: 0px 10px 0px 0px;
+    text-align: justify;
+    padding: 10px 20px;
+    color: var(--font-color-blue-bold);
+
+}
+
+/* >>aplicando dimenssionamento as imagens da loja */
+.store-front {
+    max-width: 100vw;
+    padding: 10px 10px;
+    border-radius: 25px;
+    width: 620;
+    height: 540;
+    width: 35%;
+    margin-right: 10px;
+}
+
+/* >>aplicando estilo ao paragrafo do bloco 4 */
+.paragrafo-unico p {
+    color: var(--font-color-blue-bold);
+    margin-top: 8px;
+    margin-bottom: 8px;
+    margin: 0px 10px 0px 0px;
+    text-align: justify;
+    padding: 10px 25px;
+    padding-bottom: 30px;
+    text-align: justify;
+}
+
+
+/***Iniciando agora o  terceiro container para estilizar */
+.container-quinto {
+    max-height: 100%;
+    height: 100vh;
+    max-width: 100%;
+    width: 1400px;
+    max-width: 99%;
+    margin: 20px auto;
+    background: radial-gradient(var(--bg-while-color), 35%, var(--bg-gray-ligth-color));
+    min-height: 30vh;
+    height: auto;
+}
+
+/* >>estilo ao bloco */
+.content-5 {
+    display: block;
+
+}
+
+/* >>aplicando estilo a fonte do bloco SOBRE NÓS */
+.content-5 #text-nosso-contato {
+    padding: 10px 25px;
+    margin-top: 8px;
+    margin-bottom: 16px;
+    color: var(--font-color-blue-bold);
+
+}
+
+
+/* >>aplicando estilo ao titulo da pagina REVIEWS */
+.content-5 h2 {
+    font-size: 30px;
+    padding-top: 30px;
+    padding-bottom: 20px;
+    padding-left: 10px;
+    box-sizing: border-box;
+}
+
+/* >>aplicabilidade de redução do tamanho  */
+.social-link2 img {
+    height: 24px;
+
+}
+
+/* >>aplicabilidade de estilo no link do BLOCO 5 */
+.content-5 div a {
+    display: inline-block;
+    text-decoration: none;
+    line-height: 1.4;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    margin: 10px;
+}
+
+/* >>aplicação hover para melhor dinamica com usuario */
+.content-5 div a:hover {
+    transform: scale(1.2);
+    background: transparent;
+    transition: .4s;
+}
+
+.social-link2 li {
+    display: inline;
+    margin-right: 8px;
+}
+
+/* >>aplicando distribuição dentro do bloco de formualrio */
+.contato-methods {
+    margin-left: 20px;
+    margin-top: 50px;
+    display: flex;
+    /* gap: 15%; */
+    justify-content: space-between;
+}
+
+/* >>aplicar estilo ao paragrafo */
+.contato-methods #endenreco-txt p {
+    padding-right: 20px;
+}
+
+/* >>estilizando campos do formulario */
+form input,
+form button,
+form textarea {
+    display: block;
+    width: 320px;
+    margin-bottom: 8px;
+    padding: 8px;
+
+}
+
+/* >>aplicando melhor dimensionamento ao TextArea */
+form textarea {
+    resize: none;
+    height: 180px;
+    max-height: 100%;
+}
+
+/* >>aplicando margem inferior ao texto */
+.contato-methods h3 {
+    margin-bottom: 16px;
+}
+
+form button {
+    display: inline-block;
+    text-decoration: none;
+    color: var(--font-color-blue-bold);
+    background: var(--bg-orange-color);
+    border: 1px solid var(--font-color-whiter);
+    padding: 9px 25px;
+    line-height: 1.4;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+/* >>aplicando hover para melhor dinamica com usuario */
+form button:hover {
+    background: var(--bg-paste-green-color);
+    color: var(--font-color-white);
+    transition: .4s;
+    cursor: pointer;
+}
+
+/* >>aplicando focus para que fique verde ao selecionar o campo */
+input:focus, textarea:focus {
+    outline-color: var(--bg-paste-green-color);
+}
+
+
+
+
+/*--------------------------------------------------------*/
+/*                   FOOTER                               */
+/*--------------------------------------------------------*/
+
+
+/***Iniciando agora o  terceiro container para estilizar */
+.container-sexto {
+    max-height: 100%;
+    height: 100vh;
+    max-width: 100%;
+    width: 1400px;
+    max-width: 99%;
+    margin: 20px auto;
+    background: var(--bg-blue-bold-color);
+    /* min-height: 100vh; */
+    height: auto;
+
+}
+
+/* >>aplicando o background no bloco 6 do footer */
+footer {
+    background-color: var(--bg-blue-bold-color);
+    display: block;
+    float: left;
+    width: 100%;
+    padding: 20px;
+}
+
+/* >>aplicando cor branca ao footer */
+.footer-container p {
+    color: var(--font-color-white);
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+/* >>aplicando redução ao tamanho do bloco do footer */
+footer small {
+    font-size: 80%;
+    display: block;
+}
