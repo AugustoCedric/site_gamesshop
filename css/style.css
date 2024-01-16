@@ -1,8 +1,7 @@
 /*--------------------------------------------------------*/
-/*                   INICIALIZANDO                        */
+/*                   RESET E ESTILOS GLOBAIS              */
 /*--------------------------------------------------------*/
 
-/***Zerando toda estilização ---------------------------- */
 * {
     margin: 0;
     padding: 0;
@@ -12,217 +11,221 @@
     font-family: 'Poppins', sans-serif;
 }
 
-/***Definindo paleta de cores para o projeto------------- */
-/*   >> Irei utilizar atribuição de variaveis p/ rganizar */
+
+/*--------------------------------------------------------*/
+/*                   PALETA DE CORES                      */
+/*--------------------------------------------------------*/
 
 :root {
-    /* >>definindo cores para usar nas fontes */
-    --font-color-white: #ffffff;
-    --font-color-black: #04030a;
-    --font-color-blue-bold: #04030a;
-    --font-color-orange: #fb5607;
-    --font-color-light-orange: #ffa500;
-    --font-color-red: #ff0000;
-    --font-color-grafit: #666;
-    --font-color-grafit-bold: #333333;
+    --cor-primaria: #3498db;
+    --cor-secundaria: #208e54;
+    --cor-secundaria-hover: #40d27a;
+    --cor-destaque: #fb5607;
+    --cor-destaque-hover: #ffa500;
+    --cor-fundo: #ecf0f1;
+    --cor-texto: #333;
+    --cor-texto-grafit: #9b9798;
+    --cor-texto-white: #fff;
+    --bgt-cor-black: rgba(3, 0, 12, 0.7);
+    --bgt-cor-img: #06040C;
+    --cor-red: #be0d0d;
+}
 
-
-    /* >>definindo cores para usar nos backgrounds */
-    --bg-black-color: rgba(2, 2, 2, 0.8);
-    --bg-yellow-color: rgb(249, 211, 73);
-    --bg-yellow-bold-color: rgb(213, 126, 18);
-    --bg-gray-ligth-color: rgb(248, 249, 250);
-    --bg-paste-green-color: rgb(64, 210, 122);
-    --bg-orange-color: rgb(251, 86, 7);
-    --bg-ligth-orange-color: rgb(255, 165, 0);
-    --bg-gray-bold-color: rgb(28, 35, 42);
-    --bg-blue-bold-color: rgb(21, 30, 46);
-    --bg-while-color: rgb(255, 255, 255);
-
-
-    /* >>definindo cores para usar nos backgrounds com transparencia */
-    --bg-transarencia-color-black: rgba(3, 0, 12, 0.7);
-
+.regua-geral {
+    border: 1px solid var(--cor-red);
 }
 
 
-/***Definindo a tipografia geral-------------------------- */
+/*--------------------------------------------------------*/
+/*                   ESTILOS DO CORPO DA PÁGINA           */
+/*--------------------------------------------------------*/
+
 body {
-    overflow-x: hidden;
-    font-family: "Poppins", sans-serif;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 1.625;
-    color: var(--font-color-grafit);
+    /* background-color: var(--bgt-cor-img); */
+    color: var(--cor-texto);
+    font-family: Arial, sans-serif;
+    max-width: 1400px;
+    margin: 0 auto;
+    /* Centralizar o conteúdo na página */
+
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    color: var(--font-color-grafit-bold);
-    font-weight: 700;
-    margin: 0;
-    line-height: 1.2;
-}
-
-p {
-    text-align: left;
-}
+/*--------------------------------------------------------*/
+/*                   ESTILOS DE TÍTULOS                   */
+/*--------------------------------------------------------*/
 
 h1 {
-    font-size: 36px;
+    font-size: 2.5rem;
 }
 
 h2 {
-    font-size: 30px;
+    font-size: 2rem;
 }
 
 h3 {
-    font-size: 24px;
+    font-size: 1.5rem;
 }
 
 h4 {
+    font-size: 1.2rem;
+}
+
+h5, h6 {
+    font-size: 1rem;
+}
+
+/*--------------------------------------------------------*/
+/*                   ESTILOS DE PARÁGRAFOS               */
+/*--------------------------------------------------------*/
+
+p {
+    font-size: 1rem;
+}
+
+/*--------------------------------------------------------*/
+/*                   ESTILOS DE IMAGENS E VÍDEOS          */
+/*--------------------------------------------------------*/
+
+img, video {
+    max-width: 100%;
+    height: auto;
+}
+
+.img-bg {
+    width: 100%;
+    height: 100vh;
+    max-width: 1400px;
+    display: block;
+    /* align-items: center; */
+    justify-content: center;
+    position: relative;
+    background: var(--bgt-cor-black) url(/img/img-background-001.webp);
+    background-blend-mode: darken;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 1;
+    margin: 0 auto;
+
+}
+
+
+
+.navigation {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 13px 40px;
+    width: 100%;
+    height: 100px;
+    background: rgba(0, 0, 0, 0.5);
+    transition: all 0.5s;
+    border-bottom: 1px solid #fff;
+
+}
+
+.navigation .logo img {
+    max-width: 100%;
+    float: left;
+    width: 400px;
+    padding-top: 5%;
+}
+
+.navigation ul {
+    display: flex;
+    float: right;
+    align-items: center;
+    padding: 5%;
+    gap: 3rem;
+}
+
+.navigation .nav-menu li a {
+    color: var(--cor-texto-white);
+    font-size: 18px;
+    font-weight: 500;
+    border-bottom: 2rem solid transparent;
+    transition: all 0.4s;
+}
+
+.navigation .btn a {
+    color: var(--cor-texto-white);
     font-size: 18px;
 }
 
-h5 {
-    font-size: 15px;
+.navigation .nav-menu #nav-item-id a:hover,
+.navigation .btn a:hover {
+    color: var(--cor-destaque-hover);
 }
 
-h6 {
-    font-size: 13px;
+.navigation .nav-menu #nav-item-id:not(:last-child) a:hover,
+.navigation .nav-menu #nav-item-id:not(:last-child) a:focus {
+    border-bottom: 2px solid var(--cor-destaque-hover);
 }
 
-blockquote {
-    margin: 0;
+.navigation .nav-menu #nav-item-id.avtive a {
+    border-bottom: 2px solid var(--cor-destaque-hover);
 }
 
-strong {
-    font-weight: 700;
+.nav-menu li:nth-child(6) {
+    background: var(--cor-secundaria);
+    padding: 0px 10px;
+    border-radius: 5px;
+    /* margin-right: 30px; */
 }
 
-/***Régua vermelha para ter visão de espaço dos elementos- */
-/*  >> basta colocar "regua" em qualquer nome de tag + 'regua' e ele mostra  */
-.regua {
-    border: 1px solid var(--font-color-red);
+.nav-menu li:nth-child(6):hover {
+    background: var(--cor-secundaria-hover);
+    filter: saturate(150%);
 }
 
-/*--------------------------------------------------------*/
-/*                BODY-HEADER                             */
-/*--------------------------------------------------------*/
+.navigation .menu {
+    cursor: pointer;
+    /* display: none; */
+}
 
-/***adicionando a referencia da imagem do background------ */
+.menu {
+    cursor: pointer;
+    display: none;
+}
+
+.navigation .menu .bar {
+    display: block;
+    width: 28px;
+    height: 3px;
+    border-radius: 3px;
+    background: var(--cor-destaque-hover);
+    margin: 5px auto;
+    transition: all 0.3s;
+}
+
+.navigation .menu .bar:nth-child(1),
+.navigation .menu .bar:nth-child(3) {
+    background: var(--cor-destaque-hover);
+}
+
+.navigation .menu .bar:nth-child(2) {
+    background: var(--cor-fundo);
+}
+
+
+/* ///////////////////////////////////////////////////////////////////////////////////////// */
+
 svg {
+    display: flex;
     position: absolute;
     bottom: 0;
     left: 0;
 }
 
-/***adicionando estilização do background------------------*/
-.img-background {
-    background: var(--bg-transarencia-color-black)url(/img/img-background-001.jpg);
-    background-blend-mode: darken;
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    height: 100vh;
-    width: 1400px;
-    max-width: 95%;
-    margin: 0 auto;
-
-}
-
-/***adicionando estilo ao header-------------------------- */
-header {
-    display: flex;
-    justify-content: center;
-    padding-top: 2rem;
-    align-items: center;
-    text-align: center;
-    gap: 8rem;
-}
-
-/***adicionando estilo a imagem da logo ------------------- */
-.logo img {
-    width: 20rem;
-    height: auto;
-    padding-top: 5px;
-}
-
-/***aplicando estilo ao menu --------------------------------*/
-/* >> colocando o menu não ordenado alinhado na horizontal */
-nav ul {
-    display: flex;
-    gap: 30px;
-    font-size: 14px;
-}
-
-
-/* >>aplicando estilo direto na lista não ordenada */
-nav ul li {
-    list-style: none;
-    display: inline-block;
-}
-
-/* >>aplicando estilo aos links da lista não ordenada, deixando da cor branca */
-nav ul li a {
-    text-decoration: none;
-    color: var(--font-color-white);
-    margin-left: 35px;
-    font-size: 15px;
-    font-weight: 500;
-    border-bottom: 2px solid transparent;
-    transition: .4s;
-}
-
-/* >>Aplicando função 'hover' para mudar a cor e sublinhado do menu ao passar o mouse e aplicando 'focus' 
-      para enfatizar a troca do hover apenas onde o mouse passar */
-nav ul li:not(:last-child) a:hover,
-nav ul li:not(:last-child) a:focus {
-    border-bottom: 2px solid var(--font-color-orange);
-}
-
-/* >>aplicando no nome game do menu um sublinhado fixo laranja */
-nav ul li.active a {
-    border-bottom: 2px solid var(--font-color-orange);
-}
-
-/* >>aplicando estilo ao botão */
-.btn {
-    display: flex;
-    gap: 2rem;
-    align-items: center;
-
-}
-
-/* >>aplicando cor ao botão */
-.btn button {
-    background-color: var(--font-color-orange);
-    padding: 10px;
-    color: var(--font-color-white);
-    border-radius: 5px;
-    border: none;
-    cursor: pointer;
-}
-
-/* >>aplicando efeito de hove ao botão */
-.btn button:hover {
-    background-color: var(--font-color-light-orange);
-}
-
-/* >>editando o link do botão */
-.btn a {
-    color: var(--font-color-white);
-    font-size: 18px;
-}
-
 /* >>aplicando estilo a div container */
+.content {
+    margin-top: 200px;
+}
+
 .content .main-text {
-    padding-top: 100px;
-    max-width: 1280px;
+    padding-left: 5%;
+    position: relative;
+    max-width: 1600px;
     width: 100%;
     margin: 0 auto;
 }
@@ -231,7 +234,7 @@ nav ul li.active a {
 .content .main-text h1 {
     font-size: 100px;
     line-height: 1;
-    color: var(--font-color-white);
+    color: var(--cor-texto-white);
     margin: 0px 0px 10px 0px;
 }
 
@@ -246,19 +249,19 @@ nav ul li.active a {
 /* >>aplocando estilo ao 'OF' */
 .content .callofdut-text h6 {
     margin-top: 5px;
-    color: var(--font-color-white);
+    color: var(--cor-texto-white);
 }
 
 /* >>aplocando estilo ao 'CALL' e ao 'DUT' */
 .content .callofdut-text h3 {
-    color: var(--font-color-grafit);
+    color: var(--cor-texto-grafit);
 }
 
 /* >>aplicando estilo e delimitação ao paragrafo abaixo do nome WARZONE */
 .content .main-text p {
     max-width: 100%;
     width: 480px;
-    color: var(--font-color-white);
+    color: var(--cor-texto-grafit);
     line-height: 1.8;
     font-size: 14px;
     padding-bottom: 10px;
@@ -269,9 +272,7 @@ nav ul li.active a {
 .content .main-text a {
     display: inline-block;
     text-decoration: none;
-    color: var(--font-color-blue-bold);
-    background: var(--font-color-light-orange);
-    border: 1px solid var(--font-color-white);
+    color: var(--cor-destaque-hover);
     padding: 9px 25px;
     line-height: 1.4;
     border-radius: 30px;
@@ -282,26 +283,8 @@ nav ul li.active a {
 /* >>aplicando estilo hover aos links  */
 .content .main-text a:hover {
     transform: scale(1.2);
-    border: 1px solid var(--font-color-orange);
     background: transparent;
-    color: var(--font-color-light-orange);
-    transition: .4s;
-}
-
-/* >>aplicando estilo ao outro botão do link de class 'cta' */
-.content .main-text a.cta {
-    color: var(--font-color-blue-bold);
-    background: var(--font-color-light-orange);
-    border: 1px solid var(--font-color-white);
-    margin-left: 20px;
-}
-
-/* >>aplicando estilo hover aos links  CTA */
-.content .main-text a.cta:hover {
-    transform: scale(1.2);
-    border: 1px solid var(--font-color-orange);
-    background: transparent;
-    color: var(--font-color-light-orange);
+    color: var(--cor-secundaria-hover);
     transition: .4s;
 }
 
@@ -314,7 +297,7 @@ nav ul li.active a {
 .content .ico-social {
     position: relative;
     z-index: 2;
-    margin-top: 374px;
+    margin-top: 274px;
     padding-bottom: 40px;
     padding-left: 20px;
 
@@ -323,54 +306,53 @@ nav ul li.active a {
 /* >>estilizando o link dos icones das empresas */
 .content .ico-social a {
     display: inline-block;
-    color: var(--font-color-black);
+    color: var(--cor-texto);
     margin-right: 25px;
     font-size: 24px;
 }
 
 /* >>aplicando efeito hover */
 .content .ico-social a:hover {
-    transform: scale(1.2);
+    transform: scale(1.8);
     transition: .4s;
-    color: var(--font-color-orange);
+    color: var(--cor-destaque-hover);
 }
 
+.wave-have-background {
+    position: relative;
+    margin: 0 auto;
+    padding-top: 7px;
+    opacity: 60%;
+}
 
-/*--------------------------------------------------------*/
-/*                   BODY                                 */
-/*--------------------------------------------------------*/
-
-/***Iniciando agora os outros container para estilizar */
-.container-secundario {
-    max-height: 100%;
+.content-game {
+    display: grid;
     height: 100vh;
-    max-width: 100%;
-    width: 1400px;
-    max-width: 99%;
-    margin: 20px auto;
-    min-height: 90vh;
-    height: auto;
+    max-width: 1600px;
+    width: 100%;
+    margin: 0 auto;
+    height: 100%;
+    background: linear-gradient(#909194, var(--bgt-cor-img));
+    opacity: 100%;
 }
 
-/* >>aplicando estilo ao titulo da pagina GAMES */
-.content-2 h2 {
-    font-size: 30px;
-    padding-top: 30px;
+.content-game h2 {
+    margin-top: 8px;
+    margin-left: 20px;
     padding-bottom: 20px;
-    padding-left: 10px;
     box-sizing: border-box;
 
 }
 
 /* >>aplicando estilos ao article para manter um ao lado do outro */
-.articles {
+.articles-game {
     display: flex;
-    flex-wrap: wrap;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 /* >>aplicando redimenssionamento das imagens */
-.articles article img {
+.articles-game article img {
     width: 100%;
     max-width: 100vw;
     padding: 10px 10px;
@@ -379,13 +361,13 @@ nav ul li.active a {
 }
 
 /* Aplicando um efeito hover para melhorar a interatividade com o cliente */
-.articles article img:hover {
+.articles-game article img:hover {
     transform: scale(1.05);
     transition: .4s;
 }
 
 /* >>aliando as imagens dentro do articles */
-.articles article {
+.articles-game article {
     width: 30%;
     max-width: 100vw;
     justify-content: center;
@@ -396,137 +378,138 @@ nav ul li.active a {
 }
 
 /* >>botão de retornar ao topo da pagina */
-.articles article .voltar-ao-top {
+.articles-game article .voltar-ao-top {
     position: fixed;
     bottom: 0;
-    right: 12%;
+    left: 80%;
     height: auto;
+    z-index: 1;
 }
 
 /* >>botão de retornar ao topo da pagina */
-.articles article .voltar-ao-top a {
+.articles-game article .voltar-ao-top a {
     background: none;
     border: none;
 }
 
 /* >>removendo o backgroun do link por conta do simbolo */
-.articles article .voltar-ao-top a:hover {
+.articles-game article .voltar-ao-top a:hover {
     border: none;
 }
 
 
 /* >>dimenssionando tamanho do icone */
-.articles article .voltar-ao-top img {
-    width: 5rem;
+.articles-game article .voltar-ao-top img {
+    width: 3.5rem;
     height: auto;
     padding-top: 5px;
 }
 
 /* >>aplicando efeito hover ao icone */
-.articles article .voltar-ao-top img:hover {
-    transform: scale(1.8);
+.articles-game article .voltar-ao-top img:hover {
+    transform: scale(1.3);
     transition: .4s;
 }
 
 /* >>estilizando os botões abaixo das imagens */
-.content-2 div a {
+.content-game div a {
     display: inline-block;
     text-decoration: none;
-    color: var(--font-color-white);
-    /* background:var(--font-color-grafit-bold); */
-    background: var(--bg-orange-color);
-    border: 1px solid var(--font-color-white);
+    color: var(--cor-texto-white);
     padding: 9px 25px;
     line-height: 1.4;
-    border-radius: 10px;
+    border-radius: 30px;
     font-size: 14px;
     font-weight: 500;
-    margin: 10px;
 }
 
-/* aplicando hover para melhor interatividade com cliente */
-.content-2 div a:hover {
-    transform: scale(1.2);
-    border: 1px solid var(--font-color-orange);
-    background: var(--bg-orange-color);
-    background: transparent;
-    color: var(--font-color-red);
-    transition: .4s;
+/* >>aplicar margem na direita do botão cta */
+.content-game a.cta i {
+    margin-right: 12px;
 }
 
-/***Iniciando agora o  terceiro container para estilizar */
-.container-terceiro {
-    max-height: 100%;
+.content-reviews {
+
+    background: var(--bgt-cor-img);
+    display: grid;
     height: 100vh;
-    max-width: 100%;
-    width: 1400px;
-    max-width: 99%;
-    margin: 20px auto;
-    background: radial-gradient(var(--bg-gray-bold-color), 35%, var(--bg-gray-bold-color));
-    min-height: 80vh;
+    max-width: 1600px;
+    width: 100%;
+    margin: 0 auto;
     height: auto;
 }
 
-/* >>aplicando estilo ao titulo da pagina REVIEWS */
-.content-3 h2 {
-    font-size: 30px;
-    padding-top: 30px;
+.content-reviews h2 {
+    color: var(--cor-destaque-hover);
+    margin-top: 66px;
+    margin-left: 20px;
     padding-bottom: 20px;
-    padding-left: 10px;
     box-sizing: border-box;
 }
 
-/* >>aplicando estilo ao titulo REVIEWS */
-.content-3 #text-reviews {
-    margin-left: 10px;
-    padding: 20px 20px;
-    color: var(--font-color-light-orange);
-}
-
 /* >>aplicando dimensionamento aos frames de video */
-.articles article video {
+.articles-reviews article video {
     width: 100%;
-    padding: 10px 10px;
+    padding: 1px 10px;
     cursor: pointer;
 }
 
 /* >>aplicando cor ao titulo dos videos */
-.content-3 .articles article #h3-texto {
-    color: var(--font-color-light-orange);
+.articles-reviews article #h3-texto {
+    color: var(--cor-texto-grafit);
 
 }
 
-/***Iniciando agora o  terceiro container para estilizar */
-.container-quarto {
-    max-height: 100%;
+/* >>aplicando estilos ao article para manter um ao lado do outro */
+.articles-reviews {
+
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+}
+
+/* >>aliando as imagens dentro do articles */
+.articles-reviews article {
+    width: 30%;
+    max-width: 100vw;
+    justify-content: center;
+    padding-top: 2rem;
+    align-items: center;
+    text-align: center;
+    gap: 10rem;
+}
+
+.content-sobre-nos {
+    background: linear-gradient(var(--bgt-cor-img), 35%, #061A3A);
+
+    display: grid;
     height: 100vh;
-    max-width: 100%;
-    width: 1400px;
-    max-width: 99%;
-    margin: 20px auto;
-    background: radial-gradient(var(--bg-yellow-color), 35%, var(--bg-yellow-bold-color));
-    min-height: 60vh;
+    max-width: 1600px;
+    width: 100%;
+    margin: 0 auto;
     height: auto;
 }
 
-/* >>aplicando estilo ao titulo da pagina REVIEWS */
-.content-4 h2 {
-    font-size: 30px;
-    padding-top: 30px;
+.content-sobre-nos h2 {
+    color: var(--cor-texto-white);
+    margin-top: 76px;
+    margin-left: 20px;
     padding-bottom: 20px;
-    padding-left: 10px;
     box-sizing: border-box;
 }
 
 /* >>aplicando estilo ao titulo REVIEWS */
-.content-4 #text-sobre-nos {
+.content-sobre-nos #text-sobre-nos {
     margin-left: 10px;
     padding: 20px 20px;
-    color: var(--font-color-blue-bold);
+    color: var(--cor-destaque-hover);
+
 }
 
 /* >>aplicando disposição das imagens  */
-.container-sobre-nos {
+.container-sobre-nos-2 {
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
@@ -534,32 +517,24 @@ nav ul li.active a {
 
 }
 
-/* >>aplicando estilo a fonte do bloco SOBRE NÓS */
-.container-sobre-nos h2 {
-    padding: 10px 25px;
-    margin-top: 8px;
-    margin-bottom: 16px;
-    color: var(--font-color-blue-bold);
 
-}
-
-.container-sobre-nos h4 {
+.container-sobre-nos-2 h4 {
     margin-top: 8px;
     margin-bottom: 8px;
     /* margin-bottom: 16px; */
     padding: 10px 25px;
-    color: var(--font-color-blue-bold);
+    color: var(--cor-texto-white);
 
 }
 
-.container-sobre-nos p {
-    color: var(--blue-black-color);
+.container-sobre-nos-2 #pgf {
+    color: #C0D6EB;
     margin-top: 8px;
     margin-bottom: 8px;
     margin: 0px 10px 0px 0px;
     text-align: justify;
     padding: 10px 20px;
-    color: var(--font-color-blue-bold);
+    /* color: var(--font-color-blue-bold); */
 
 }
 
@@ -574,9 +549,24 @@ nav ul li.active a {
     margin-right: 10px;
 }
 
+.store-front-2 {
+    display: none;
+}
+
+.container-sobre-nos-2 #pgf-2 {
+    color: #C0D6EB;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    margin: 0px 10px 0px 0px;
+    text-align: justify;
+    padding: 10px 20px;
+    /* color: var(--font-color-blue-bold); */
+
+}
+
 /* >>aplicando estilo ao paragrafo do bloco 4 */
-.paragrafo-unico p {
-    color: var(--font-color-blue-bold);
+.paragrafo-unico #pgf-2 {
+    color: #C0D6EB;
     margin-top: 8px;
     margin-bottom: 8px;
     margin: 0px 10px 0px 0px;
@@ -586,38 +576,32 @@ nav ul li.active a {
     text-align: justify;
 }
 
-
-/***Iniciando agora o  terceiro container para estilizar */
-.container-quinto {
-    max-height: 100%;
+.content-chat {
+    background: linear-gradient(#061A3A, 45%, var(--bgt-cor-img));
+    display: grid;
     height: 100vh;
-    max-width: 100%;
-    width: 1400px;
-    max-width: 99%;
-    margin: 20px auto;
-    background: radial-gradient(var(--bg-while-color), 35%, var(--bg-gray-ligth-color));
-    min-height: 30vh;
+    max-width: 1600px;
+    width: 100%;
+    margin: 0 auto;
     height: auto;
-}
-
-/* >>estilo ao bloco */
-.content-5 {
-    display: block;
 
 }
 
 /* >>aplicando estilo a fonte do bloco SOBRE NÓS */
-.content-5 #text-nosso-contato {
+.content-chat #text-nosso-contato {
     padding: 10px 25px;
     margin-top: 8px;
     margin-bottom: 16px;
-    color: var(--font-color-blue-bold);
+    color: var(--cor-texto-white);
 
 }
 
 
 /* >>aplicando estilo ao titulo da pagina REVIEWS */
-.content-5 h2 {
+.content-chat h2,
+.content-chat h3,
+.content-chat #endenreco-txt {
+    color: var(--cor-texto-white);
     font-size: 30px;
     padding-top: 30px;
     padding-bottom: 20px;
@@ -632,7 +616,7 @@ nav ul li.active a {
 }
 
 /* >>aplicabilidade de estilo no link do BLOCO 5 */
-.content-5 div a {
+.content-chat div a {
     display: inline-block;
     text-decoration: none;
     line-height: 1.4;
@@ -643,7 +627,7 @@ nav ul li.active a {
 }
 
 /* >>aplicação hover para melhor dinamica com usuario */
-.content-5 div a:hover {
+.content-chat div a:hover {
     transform: scale(1.2);
     background: transparent;
     transition: .4s;
@@ -652,6 +636,10 @@ nav ul li.active a {
 .social-link2 li {
     display: inline;
     margin-right: 8px;
+}
+
+.social-link2 li a img:nth-child(3) {
+    background-color: var(--cor-texto-white);
 }
 
 /* >>aplicando distribuição dentro do bloco de formualrio */
@@ -694,12 +682,12 @@ form textarea {
 form button {
     display: inline-block;
     text-decoration: none;
-    color: var(--font-color-blue-bold);
-    background: var(--bg-orange-color);
-    border: 1px solid var(--font-color-whiter);
+    color: var(--cor-texto-white);
+    background: var(--cor-secundaria);
+    /* border: 1px solid var(--cor-texto-white); */
     padding: 9px 25px;
     line-height: 1.4;
-    border-radius: 10px;
+    border-radius: 4px;
     font-size: 14px;
     font-weight: 500;
     cursor: pointer;
@@ -707,19 +695,16 @@ form button {
 
 /* >>aplicando hover para melhor dinamica com usuario */
 form button:hover {
-    background: var(--bg-paste-green-color);
-    color: var(--font-color-white);
+    background: var(--cor-secundaria-hover);
+    color: var(--cor-texto-white);
     transition: .4s;
     cursor: pointer;
 }
 
 /* >>aplicando focus para que fique verde ao selecionar o campo */
 input:focus, textarea:focus {
-    outline-color: var(--bg-paste-green-color);
+    outline-color: var(--cor-secundaria-hover);
 }
-
-
-
 
 /*--------------------------------------------------------*/
 /*                   FOOTER                               */
@@ -727,31 +712,27 @@ input:focus, textarea:focus {
 
 
 /***Iniciando agora o  terceiro container para estilizar */
-.container-sexto {
-    max-height: 100%;
-    height: 100vh;
-    max-width: 100%;
-    width: 1400px;
-    max-width: 99%;
-    margin: 20px auto;
-    background: var(--bg-blue-bold-color);
-    /* min-height: 100vh; */
-    height: auto;
 
-}
 
 /* >>aplicando o background no bloco 6 do footer */
-footer {
-    background-color: var(--bg-blue-bold-color);
-    display: block;
-    float: left;
+
+.container-footer {
+    background: var(--bgt-cor-img);
+    display: grid;
+    height: 100vh;
+    max-width: 1600px;
     width: 100%;
-    padding: 20px;
+    margin: 0 auto;
+    height: auto;
+    padding-top: 8%;
+    padding-bottom: 2%;
+
 }
 
+
 /* >>aplicando cor branca ao footer */
-.footer-container p {
-    color: var(--font-color-white);
+.container-footer .footer-container p {
+    color: var(--cor-texto-white);
     font-size: 0.9rem;
     text-align: center;
 }
@@ -760,4 +741,327 @@ footer {
 footer small {
     font-size: 80%;
     display: block;
+}
+
+
+@media (max-width: 785px) {
+
+    .img-bg {
+        width: 100%;
+        height: 100vh;
+        max-width: 1400px;
+        display: block;
+        /* align-items: center; */
+        justify-content: center;
+        position: relative;
+        background: var(--bgt-cor-black) url(/img/img-background-mobile.webp);
+        background-blend-mode: darken;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        z-index: 1;
+        margin: 0 auto;
+    }
+
+    .navegation {
+        padding: 18px 20px;
+    }
+
+    .menu {
+        display: block;
+    }
+
+    .menu.ativo .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .menu.ativo .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu.ativo .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    .nav-menu {
+        position: fixed;
+        right: -110%;
+        top: 100px;
+        width: 100%;
+        height: 100%;
+        flex-direction: column;
+        background: rgba(37, 142, 84, 0.4);
+        gap: -10px;
+        transition: all 0.3s;
+        z-index: 1;
+    }
+
+    .nav-menu li:nth-child(6) {
+
+        color: var(--cor-texto-white);
+        background: var(--cor-red);
+    }
+
+
+    .navigation .nav-menu li a {
+        color: var(--cor-destaque-hover);
+    }
+
+    .navigation .nav-menu li a:hover {
+        background: rgba(0, 0, 0, 0.7);
+        border-radius: 6px;
+    }
+
+
+
+
+    .nav-menu.ativo {
+        right: 0;
+    }
+
+    .nav-item {
+        margin: 16px 0;
+    }
+
+
+    main {
+        display: block;
+        flex-direction: column;
+        overflow: hidden;
+        gap: 5rem;
+        max-width: 100%;
+
+    }
+
+    .content .main-text h1 {
+        font-size: 3rem;
+        margin-right: 30%;
+    }
+
+
+    /* >>aplicando formatação ao nome 'CALL OF DUT' */
+    .content .callofdut-text {
+        text-align: left;
+        display: flex;
+        justify-items: center;
+        margin-left: 4.1rem;
+    }
+
+    /* >>aplicando estilo e delimitação ao paragrafo abaixo do nome WARZONE */
+    .content .main-text p {
+        max-width: 100%;
+        width: 100%;
+        color: var(--cor-texto-grafit);
+        line-height: 1.8;
+        font-size: 13px;
+        text-align: justify;
+        padding-bottom: 10px;
+        padding-right: 5%;
+    }
+
+    /* >>aplicando estilo ao nome WARZONE */
+    .content .main-text h1 {
+        color: var(--cor-texto-grafit);
+    }
+
+    /* >>aplicando estilo aos icones das empresas de jogos */
+    .content .ico-social {
+        position: relative;
+        z-index: 2;
+        margin-top: 110px;
+        padding-left: 5px;
+        padding-bottom: 0px;
+        display: flex;
+        justify-content: space-between;
+        top: 15px;
+    }
+
+    /* >>estilizando o link dos icones das empresas */
+    .content .ico-social a {
+        font-size: 18px;
+
+    }
+
+    .wave-have-background {
+        position: flex;
+        z-index: 1;
+        /* padding-top: 18px; */
+        padding-bottom: 0px;
+        margin-bottom: 0px;
+        opacity: 100%;
+        filter: grayscale(90%);
+    }
+
+
+    .content-game {
+        display: grid;
+        height: 100vh;
+        max-width: 1600px;
+        width: 100%;
+        margin: 0 auto;
+        height: 100%;
+        background: linear-gradient(#EFEFEF, #909194, var(--bgt-cor-img));
+        opacity: 100%;
+        margin-top: -1px;
+    }
+
+
+    .content-game h2 {
+        margin-left: 20px;
+        box-sizing: border-box;
+        margin-top: 0px;
+        padding-bottom: 0px;
+        padding-top: 30px;
+    }
+
+    svg {
+        display: flex;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        border: none;
+
+    }
+
+
+    /* >>botão de retornar ao topo da pagina */
+    .articles-game article .voltar-ao-top {
+        position: fixed;
+        bottom: 0;
+        left: 84%;
+        height: auto;
+        z-index: 1;
+    }
+
+    /* >>aliando as imagens dentro do articles */
+    .articles-game article {
+        width: 95%;
+        max-width: 100vw;
+        justify-content: center;
+        padding-top: 2rem;
+        align-items: center;
+        text-align: center;
+        gap: 10rem;
+    }
+
+
+    /* >>aliando as imagens dentro do articles */
+    .articles-reviews article {
+        width: 95%;
+        max-width: 100vw;
+        justify-content: center;
+        padding-top: 2rem;
+        align-items: center;
+        text-align: center;
+        gap: 10rem;
+    }
+
+
+    /* >>aplicando disposição das imagens  */
+    .container-sobre-nos-2 {
+        display: block;
+
+    }
+
+    .store-front,
+    #nossa-loja-mobi {
+        display: none;
+    }
+
+    .store-front-2,
+    #store-fornt-2 {
+        display: block;
+        max-width: 100vw;
+        padding: 10px 10px;
+        border-radius: 25px;
+        width: 620;
+        height: 540;
+        width: 95%;
+        margin-right: 10px;
+    }
+
+    .contato-methods {
+        display: block;
+        width: 95%;
+    }
+
+    /* >>estilizando campos do formulario */
+    form input,
+    form button,
+    form textarea {
+        display: block;
+        width: 320px;
+        margin: 0 5%;
+        margin-bottom: 8px;
+        padding: 8px;
+
+    }
+
+    form button {
+        margin: 0 5.4%;
+        align-items: center;
+    }
+
+
+    /* >>aplicando disposição das imagens  */
+    .container-sobre-nos-2 {
+        padding: 0px;
+
+    }
+
+
+    .container-sobre-nos-2 #pgf-2 {
+        text-align: left;
+    }
+
+    .contato-methods .social-link2 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 2.5rem;
+    }
+
+
+    /* >>aplicando cor branca ao footer */
+    .container-footer .footer-container p {
+        font-size: 0.8rem;
+        text-align: center;
+        padding-bottom: 2rem;
+    }
+
+    /* end-curso */
+    .contato-methods #end-curso {
+        padding-bottom: 10px;
+    }
+
+    /* >>aplicar estilo ao paragrafo */
+    .contato-methods #endenreco-txt p {
+        font-size: 0.8rem;
+        text-align: left;
+        padding-left: 20px;
+    }
+
+
+
+    /* >>aplicando estilo ao titulo da pagina REVIEWS */
+    .content-chat h2,
+    .content-chat h3 {
+        padding-bottom: 0px;
+        padding-top: 10px;
+        font-size: 25px;
+        box-sizing: border-box;
+        padding-left: 18px;
+
+    }
+
+    /* >>aplicando estilo ao titulo da pagina REVIEWS */
+    .content-chat #endenreco-txt {
+        padding-bottom: 0px;
+        padding-top: 10px;
+        font-size: 25px;
+        box-sizing: border-box;
+        padding-left: 0px;
+
+    }
+
 }
